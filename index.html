@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakuto的作品集</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-logo">Hakuto</h1>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区域 -->
+    <main class="main-content">
+        <!-- 标题区域 -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Hakuto的作品集</h1>
+                <p class="hero-subtitle">探索创意与技术的完美结合</p>
+            </div>
+        </section>
+
+        <!-- 作品分类导航 -->
+        <section class="category-nav">
+            <div class="category-container">
+                <button class="category-btn active" data-category="ue5">
+                    <i class="fas fa-gamepad"></i>
+                    <span>UE5</span>
+                </button>
+                <button class="category-btn" data-category="unity">
+                    <i class="fas fa-cube"></i>
+                    <span>Unity</span>
+                </button>
+                <button class="category-btn" data-category="video">
+                    <i class="fas fa-video"></i>
+                    <span>视频剪辑</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 作品展示区域 -->
+        <section class="portfolio-section">
+            <!-- UE5作品 -->
+            <div class="portfolio-category active" id="ue5-category">
+                <h2 class="category-title">UE5作品</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item" data-id="ue5-1">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop" alt="UE5开放世界">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/76979871">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="ue5-openworld.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>UE5开放世界场景</h3>
+                            <p>使用UE5创建的广阔开放世界，包含动态天气系统和真实物理效果</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-id="ue5-2">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop" alt="UE5角色系统">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/1084537">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="ue5-character.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>UE5高级角色系统</h3>
+                            <p>基于UE5的复杂角色动画系统，支持面部表情和动作捕捉</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-id="ue5-3">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop" alt="UE5光照系统">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/139707837">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="ue5-lighting.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>UE5实时光照系统</h3>
+                            <p>先进的实时光照解决方案，支持全局光照和光线追踪</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-id="ue5-4">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop" alt="UE5特效系统">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/22439234">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="ue5-effects.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>UE5粒子特效系统</h3>
+                            <p>高性能粒子特效系统，支持复杂的物理模拟和材质效果</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-id="ue5-5">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop" alt="UE5AI系统">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/36579366">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="ue5-ai.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>UE5智能AI系统</h3>
+                            <p>基于行为树的智能AI系统，支持复杂的决策逻辑和路径规划</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-id="ue5-6">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop" alt="UE5优化方案">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/148751763">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="ue5-optimization.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>UE5性能优化方案</h3>
+                            <p>全面的性能优化解决方案，包含LOD系统和内存管理</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unity作品 -->
+            <div class="portfolio-category" id="unity-category">
+                <h2 class="category-title">Unity作品</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item" data-id="unity-1">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop" alt="Unity2D游戏">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/1084537">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="unity-2dgame.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>Unity 2D平台游戏</h3>
+                            <p>完整的2D平台游戏开发，包含角色控制、关卡设计和粒子特效</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-id="unity-2">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop" alt="UnityVR体验">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/139707837">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="unity-vr.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>Unity VR沉浸体验</h3>
+                            <p>高质量的VR体验项目，支持手势交互和空间定位</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-id="unity-3">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop" alt="UnityAR应用">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/22439234">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="unity-ar.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>Unity AR增强现实</h3>
+                            <p>基于移动设备的AR应用，支持图像识别和3D模型叠加</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-id="unity-4">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop" alt="Unity3D场景">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/36579366">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="unity-3dscene.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>Unity 3D场景设计</h3>
+                            <p>精美的3D场景制作，包含地形编辑和光照烘焙</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-id="unity-5">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop" alt="UnityUI系统">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/148751763">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="unity-ui.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>Unity UI界面系统</h3>
+                            <p>响应式UI系统设计，支持多平台适配和动画效果</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-id="unity-6">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop" alt="Unity网络游戏">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/76979871">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="unity-multiplayer.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>Unity多人在线游戏</h3>
+                            <p>基于网络的多人在线游戏，支持实时同步和房间系统</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 视频剪辑作品 -->
+            <div class="portfolio-category" id="video-category">
+                <h2 class="category-title">视频剪辑作品</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item" data-id="video-1">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=300&fit=crop" alt="宣传片制作">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/1084537">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="promo-video.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>企业宣传片制作</h3>
+                            <p>专业的企业宣传片，包含脚本策划、拍摄和后期制作</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-id="video-2">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop" alt="纪录片剪辑">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/139707837">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="documentary.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>纪录片剪辑制作</h3>
+                            <p>纪实风格的纪录片剪辑，注重故事性和情感表达</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-id="video-3">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&h=300&fit=crop" alt="音乐MV制作">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/22439234">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="music-video.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>音乐MV创意制作</h3>
+                            <p>创意音乐MV制作，结合音乐节奏和视觉艺术</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-id="video-4">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&h=300&fit=crop" alt="婚礼视频">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/36579366">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="wedding-video.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>婚礼视频精剪</h3>
+                            <p>温馨浪漫的婚礼视频，记录人生重要时刻</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-id="video-5">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop" alt="产品展示">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/148751763">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="product-showcase.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>产品展示视频</h3>
+                            <p>专业的产品展示视频，突出产品特点和优势</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-id="video-6">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop" alt="动画特效">
+                            <div class="item-overlay">
+                                <button class="action-btn view-video" data-video="https://player.vimeo.com/video/76979871">
+                                    <i class="fas fa-play"></i>
+                                    <span>查看视频</span>
+                                </button>
+                                <button class="action-btn download-project" data-file="animation-effects.zip">
+                                    <i class="fas fa-download"></i>
+                                    <span>下载项目</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <h3>动画特效制作</h3>
+                            <p>专业的动画特效制作，包含2D/3D动画和视觉特效</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 视频模态框 -->
+    <div id="video-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <video id="modal-video" controls>
+                <source src="" type="video/mp4">
+                您的浏览器不支持视频播放。
+            </video>
+        </div>
+    </div>
+
+    <!-- 下载确认模态框 -->
+    <div id="download-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>下载确认</h3>
+            <p id="download-message">您即将下载项目文件</p>
+            <div class="modal-actions">
+                <button id="confirm-download" class="btn-primary">确认下载</button>
+                <button id="cancel-download" class="btn-secondary">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="image-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modal-image" src="" alt="">
+            <div id="image-info">
+                <h3 id="modal-image-title"></h3>
+                <p id="modal-image-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
