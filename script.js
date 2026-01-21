@@ -39,7 +39,12 @@ function setupEventListeners() {
     viewVideoBtns.forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.stopPropagation();
-            openVideoModal(this.dataset.video);
+            const embed = this.dataset.embed;
+            if (embed) {
+                openVideoEmbedModal(embed);
+            } else {
+                openVideoModal(this.dataset.video);
+            }
         });
     });
     
@@ -201,9 +206,15 @@ function openVideoModal(videoSrc) {
     currentVideo = videoSrc;
     const modal = document.getElementById('video-modal');
     const video = document.getElementById('modal-video');
+    const iframeBox = document.getElementById('modal-iframe');
+    if (iframeBox) {
+        iframeBox.innerHTML = '';
+        iframeBox.style.display = 'none';
+    }
     
     // 设置视频源
     video.src = videoSrc;
+    video.style.display = 'block';
     
     // 显示模态框
     modal.classList.add('active');
@@ -218,6 +229,26 @@ function openVideoModal(videoSrc) {
     showNotification('视频加载中...', 'info');
 }
 
+function openVideoEmbedModal(embedSrc) {
+    const modal = document.getElementById('video-modal');
+    const video = document.getElementById('modal-video');
+    const iframeBox = document.getElementById('modal-iframe');
+    if (!modal || !iframeBox) return;
+    if (video) {
+        video.pause();
+        video.currentTime = 0;
+        video.style.display = 'none';
+    }
+    let src = embedSrc.startsWith('//') ? `https:${embedSrc}` : embedSrc;
+    if (src.includes('?')) {
+        src += '&autoplay=1&high_quality=1';
+    } else {
+        src += '?autoplay=1&high_quality=1';
+    }
+    iframeBox.innerHTML = `<iframe src="${src}" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>`;
+    iframeBox.style.display = 'block';
+    modal.classList.add('active');
+}
 // 打开下载确认模态框
 function openDownloadModal(fileName) {
     currentDownloadFile = fileName;

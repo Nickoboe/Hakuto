@@ -425,6 +425,23 @@ body.dark-mode {
     margin-top: 1rem;
 }
 
+#modal-iframe {
+    position: relative;
+    padding-top: 56.25%;
+    margin-top: 1rem;
+    display: none;
+}
+
+#modal-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 10px;
+}
+
 .modal-actions {
     display: flex;
     gap: 1rem;
