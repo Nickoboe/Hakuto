@@ -1,6 +1,7 @@
 // 全局变量
 let currentVideo = '';
 let currentDownloadFile = '';
+const DEFAULT_PAN_URL = 'https://pan.baidu.com/';
 
 // DOM 加载完成后初始化
 document.addEventListener('DOMContentLoaded', function() {
@@ -47,7 +48,13 @@ function setupEventListeners() {
     downloadBtns.forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.stopPropagation();
-            openDownloadModal(this.dataset.file);
+            const pan = this.dataset.pan;
+            const url = pan || DEFAULT_PAN_URL;
+            if (url) {
+                window.open(url, '_blank');
+            } else {
+                openDownloadModal(this.dataset.file);
+            }
         });
     });
     
@@ -239,22 +246,11 @@ function openImageModal(imageSrc, title, description) {
 // 确认下载文件
 function confirmDownloadFile() {
     if (currentDownloadFile) {
-        // 模拟下载过程
-        showNotification(`开始下载: ${currentDownloadFile}`, 'success');
-        
-        // 创建下载链接（实际项目中这里应该是真实的文件链接）
-        const link = document.createElement('a');
-        link.href = '#'; // 实际项目中替换为真实文件URL
-        link.download = currentDownloadFile;
-        link.click();
-        
-        // 关闭模态框
+        const url = DEFAULT_PAN_URL;
+        if (url) {
+            window.open(url, '_blank');
+        }
         closeAllModals();
-        
-        // 显示下载完成通知
-        setTimeout(() => {
-            showNotification('下载完成！', 'success');
-        }, 1000);
     }
 }
 
