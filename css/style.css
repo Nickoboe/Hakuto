@@ -347,3 +347,45 @@ body.dark-mode .secondary-btn::before { background: rgba(255,255,255,0.1); }
     .module { padding: 40px 5%; }
     .project-grid { grid-template-columns: 1fr; }
 }
+
+/* 返回顶部按钮 */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.back-to-top i {
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+
+.back-to-top:hover i {
+    color: var(--accent-color);
+}
