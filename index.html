@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakuto - 个人主页</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 背景图 -->
+    <div class="background-image"></div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="logo">Hakuto</div>
+        <ul class="nav-links">
+            <li><a href="#home">首页</a></li>
+            <li><a href="#about">关于我</a></li>
+            <li><a href="#projects">项目</a></li>
+            <li><a href="#channel">我的频道</a></li>
+            <li><a href="#skills">技能</a></li>
+            <li><a href="#contact">联系我</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </button>
+    </nav>
+
+    <main>
+        <!-- 首页 -->
+        <section id="home" class="module">
+            <div class="container home-container">
+                <div class="home-text">
+                    <h1 class="greeting">你好，我是Hakuto</h1>
+                    <h2 class="subtitle">游戏爱好者 & 开发者</h2>
+                    <div class="quote-carousel">
+                        <p class="quote-item active">"Talk is cheap. Show me the code." - Linus Torvalds</p>
+                        <p class="quote-item">"Stay hungry, stay foolish." - Steve Jobs</p>
+                        <p class="quote-item">"Code is like humor. When you have to explain it, it’s bad." - Cory House</p>
+                        <p class="quote-item">"First, solve the problem. Then, write the code." - John Johnson</p>
+                    </div>
+                    <div class="action-buttons">
+                        <a href="#projects" class="btn primary-btn">查看我的项目</a>
+                        <a href="https://github.com/Nickoboe/Hakuto" target="_blank" class="btn secondary-btn"><i class="fab fa-github"></i> 访问我的GitHub</a>
+                    </div>
+                </div>
+                <div class="avatar-container">
+                    <img src="assets/avatar.jpg" alt="Avatar" class="avatar spinning">
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于我 -->
+        <section id="about" class="module">
+            <div class="container">
+                <h2 class="section-title">关于我</h2>
+                <div class="about-content">
+                    <div class="intro">
+                        <p>我是一名热爱游戏和编程的开发者，喜欢探索新技术，创造有趣的项目。</p>
+                        <p>我喜欢在代码中寻找乐趣，在游戏中体验不同的世界。</p>
+                        <h3>碎碎念</h3>
+                        <div class="markdown-quote quote-carousel">
+                            <p class="quote-item active">“生活不止眼前的苟且，还有代码和远方”</p>
+                            <p class="quote-item">日子是重复的，但快乐不是</p>
+                            <p class="quote-item">把烦心事丢掉，腾出地方装鲜花</p>
+                            <p class="quote-item">万事尽头，终将美好</p>
+                        </div>
+                        <div class="chat-glass-box">
+                            <h4>想和我聊聊？</h4>
+                            <p>无论是技术交流、游戏开发探讨，还是寻找合作机会，我都非常欢迎。如果你有有趣的想法，不妨和我分享！</p>
+                            <a href="#contact" class="btn primary-btn">前往联系</a>
+                        </div>
+                        </div>
+                        <div class="timeline">
+                        <h3>时间线</h3>
+                        <div class="timeline-item">
+                            <span class="date">2026 - 至今</span>
+                            <p>开发之路，启程！</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="date">2025 - 2026</span>
+                            <p>明确了C#与.NET后端的发展方向，从零搭建并成功将个人主页Hakuto部署至GitHub Pages</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="date">2024 - 2025</span>
+                            <p>深入学习前后端分离架构，在 B 站等平台疯狂汲取养分</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="date">2022 - 2023</span>
+                            <p>正式踏入编程与游戏开发的世界，敲下了生命中第一行 "Hello World"</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目 -->
+        <section id="projects" class="module">
+            <div class="container">
+                <h2 class="section-title">项目笔记</h2>
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="personal">个人项目</button>
+                    <button class="filter-btn" data-filter="study">学习笔记</button>
+                </div>
+                <div class="project-grid">
+                    <div class="project-card" data-category="personal">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=400" alt="独立游戏A">
+                        <h3>小猫历险记</h3>
+                        <p>使用Godot开发的一款2D平台跳跃游戏，包含丰富的关卡设计与流畅的动作手感。</p>
+                        <div class="project-links">
+                            <a href="#" class="btn small-btn">查看详情</a>
+                            <a href="https://space.bilibili.com/286718390?spm_id_from=333.1007.0.0" target="_blank" class="btn small-btn bilibili-btn"><i class="fab fa-bilibili"></i> B站视频</a>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="personal">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=400" alt="个人博客系统">
+                        <h3>问卷调查系统</h3>
+                        <p>基于Vue3 + Node.js搭建的现代化全栈系统，前后端分离，支持多类型题目与数据分析。</p>
+                        <div class="project-links">
+                            <a href="#" class="btn small-btn">查看详情</a>
+                            <a href="https://space.bilibili.com/286718390?spm_id_from=333.1007.0.0" target="_blank" class="btn small-btn bilibili-btn"><i class="fab fa-bilibili"></i> B站视频</a>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="study">
+                        <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&q=80&w=400" alt="WebGL渲染笔记">
+                        <h3>Typora笔记</h3>
+                        <p>记录从零开始学习Typora与代码实现。</p>
+                        <div class="project-links">
+                            <a href="#" class="btn small-btn">查看详情</a>
+                            <a href="https://space.bilibili.com/286718390?spm_id_from=333.1007.0.0" target="_blank" class="btn small-btn bilibili-btn"><i class="fab fa-bilibili"></i> B站视频</a>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="study">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=400" alt="算法数据结构">
+                        <h3>算法与数据结构</h3>
+                        <p>LeetCode刷题总结，包含高频面试题的多种解法分析与思路图解。</p>
+                        <div class="project-links">
+                            <a href="#" class="btn small-btn">查看详情</a>
+                            <a href="https://space.bilibili.com/286718390?spm_id_from=333.1007.0.0" target="_blank" class="btn small-btn bilibili-btn"><i class="fab fa-bilibili"></i> B站视频</a>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="personal">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=400" alt="UI组件库">
+                        <h3>winform视频管理系统</h3>
+                        <p>基于Winform开发的视频管理系统，支持视频的增删改查与提交功能。</p>
+                        <div class="project-links">
+                            <a href="#" class="btn small-btn">查看详情</a>
+                            <a href="https://space.bilibili.com/286718390?spm_id_from=333.1007.0.0" target="_blank" class="btn small-btn bilibili-btn"><i class="fab fa-bilibili"></i> B站视频</a>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="study">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=400" alt="Unity Shader学习">
+                        <h3>Unity小游戏</h3>
+                        <p>复刻一些经典小游戏，完成整个开发流程</p>
+                        <div class="project-links">
+                            <a href="#" class="btn small-btn">查看详情</a>
+                            <a href="https://space.bilibili.com/286718390?spm_id_from=333.1007.0.0" target="_blank" class="btn small-btn bilibili-btn"><i class="fab fa-bilibili"></i> B站视频</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 我的频道 -->
+        <section id="channel" class="module">
+            <div class="container">
+                <h2 class="section-title">我的频道</h2>
+                <div class="channel-links">
+                    <a href="https://space.bilibili.com/286718390?spm_id_from=333.1007.0.0" target="_blank" class="channel-card bilibili-card">
+                        <i class="fab fa-bilibili"></i>
+                        <span>B站主页</span>
+                    </a>
+                    <a href="https://github.com/Nickoboe/Hakuto" target="_blank" class="channel-card github-card">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub主页</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技能 -->
+        <section id="skills" class="module">
+            <div class="container">
+                <h2 class="section-title">我的技能</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity">
+                        <span>Unity</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                        <span>HTML5</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+                        <span>CSS3</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue">
+                        <span>Vue.js</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="custom-icon"><i class="fas fa-video"></i></div>
+                        <span>剪映</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系我 -->
+        <section id="contact" class="module">
+            <div class="container">
+                <h2 class="section-title">联系我</h2>
+                <div class="contact-options">
+                    <div class="contact-card popup-trigger" data-popup="email-popup">
+                        <i class="fas fa-envelope"></i>
+                        <span>发送邮件</span>
+                    </div>
+                    <div class="contact-card popup-trigger" data-popup="wechat-popup">
+                        <i class="fab fa-weixin"></i>
+                        <span>添加微信</span>
+                    </div>
+                    <div class="contact-card popup-trigger" data-popup="qq-popup">
+                        <i class="fab fa-qq"></i>
+                        <span>添加QQ</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 二维码弹窗 -->
+    <div id="wechat-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h3>扫描二维码添加微信</h3>
+            <img src="assets/wechat-qr.png" alt="微信二维码" class="qr-image">
+        </div>
+    </div>
+    
+    <div id="qq-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h3>扫描二维码添加QQ</h3>
+            <img src="assets/qq-qr.png" alt="QQ二维码" class="qr-image">
+        </div>
+    </div>
+
+    <div id="email-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h3>作者的邮件是：</h3>
+            <p style="margin-top: 1rem; font-size: 1rem; color: #ddd;">3147516285@qq.com</p>
+        </div>
+    </div>
+
+    <div id="project-detail-popup" class="popup-overlay">
+        <div class="popup-content detail-popup-content">
+            <span class="close-btn">&times;</span>
+            <img src="" alt="项目详情图" class="detail-image">
+            <h3 class="detail-title"></h3>
+            <p class="detail-description"></p>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
