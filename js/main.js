@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const detailButtons = document.querySelectorAll('.project-card .btn.small-btn:not(.bilibili-btn)');
+    const detailButtons = document.querySelectorAll('.project-card .btn.small-btn:not(.bilibili-btn):not(.baidu-btn):not(.pdf-btn)');
     const detailPopup = document.getElementById('project-detail-popup');
     if (detailPopup) {
         detailButtons.forEach(button => {
