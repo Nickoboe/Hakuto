@@ -3,358 +3,402 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hakuto - 个人主页</title>
+    <meta name="description" content="Hakuto - Game Enthusiast & Developer Portfolio">
+    <title>Hakuto - Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F319;</text></svg>">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
-    <!-- 背景图 -->
-    <div class="background-image"></div>
+    <!-- Sakura Canvas -->
+    <canvas id="sakura-canvas"></canvas>
 
-    <!-- 导航栏 -->
+    <!-- Animated Background Blobs -->
+    <div class="bg-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+        <div class="blob blob-5"></div>
+    </div>
+
+    <!-- Navbar -->
     <nav class="navbar">
-        <div class="logo">Hakuto</div>
+        <a href="#home" class="logo">
+            Hakuto
+        </a>
         <ul class="nav-links">
-            <li><a href="#home">首页</a></li>
-            <li><a href="#about">关于我</a></li>
-            <li><a href="#projects">项目</a></li>
-            <li><a href="#channel">我的频道</a></li>
-            <li><a href="#skills">技能</a></li>
-            <li><a href="#contact">联系我</a></li>
+            <li><a href="#home" class="active" data-i18n="nav.home">Home</a></li>
+            <li><a href="#work" data-i18n="nav.work">Work</a></li>
+            <li><a href="#about" data-i18n="nav.about">About</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
-        <button id="theme-toggle" class="theme-toggle">
-            <i class="fas fa-moon"></i>
-        </button>
+        <div class="nav-actions">
+            <button id="lang-toggle" class="lang-toggle" title="Switch Language">
+                <i class="fas fa-globe"></i>
+                <span>EN</span>
+            </button>
+            <a href="#contact" class="btn hire-btn" data-i18n="nav.hire">HIRE ME</a>
+            <button id="menu-toggle" class="menu-toggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </nav>
 
     <main>
-        <!-- 首页 -->
-        <section id="home" class="module">
-            <div class="container home-container">
-                <div class="home-text">
-                    <h1 class="greeting">你好，我是Hakuto</h1>
-                    <h2 class="subtitle">游戏爱好者 & 开发者</h2>
+        <!-- Hero -->
+        <section id="home" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-text">
+                    <p class="hero-tag" data-i18n="hero.tag">Game Enthusiast & Developer</p>
+                    <h1 class="hero-title">
+                        <span class="typing-text" id="typing-text"></span>
+                        <span class="typing-cursor">|</span>
+                    </h1>
                     <div class="quote-carousel">
                         <p class="quote-item active">"Talk is cheap. Show me the code." - Linus Torvalds</p>
                         <p class="quote-item">"Stay hungry, stay foolish." - Steve Jobs</p>
-                        <p class="quote-item">"Code is like humor. When you have to explain it, it’s bad." - Cory House</p>
+                        <p class="quote-item">"Code is like humor. When you have to explain it, it's bad." - Cory House</p>
                         <p class="quote-item">"First, solve the problem. Then, write the code." - John Johnson</p>
                     </div>
-                    <div class="action-buttons">
-                        <a href="#projects" class="btn primary-btn">查看我的项目</a>
-                        <a href="https://github.com/Nickoboe/Hakuto" target="_blank" class="btn secondary-btn"><i class="fab fa-github"></i> 访问我的GitHub</a>
-                    </div>
-                </div>
-                <div class="avatar-container">
-                    <img src="assets/avatar.jpg" alt="Avatar" class="avatar spinning">
-                </div>
-            </div>
-        </section>
-
-        <!-- 关于我 -->
-        <section id="about" class="module">
-            <div class="container">
-                <h2 class="section-title">关于我</h2>
-                <div class="about-content">
-                    <div class="intro">
-                        <p>我是一名热爱游戏和编程的开发者，喜欢探索新技术，创造有趣的项目。</p>
-                        <p>我喜欢在代码中寻找乐趣，在游戏中体验不同的世界。</p>
-                        <h3>碎碎念</h3>
-                        <div class="markdown-quote quote-carousel">
-                            <p class="quote-item active">“生活不止眼前的苟且，还有代码和远方”</p>
-                            <p class="quote-item">日子是重复的，但快乐不是</p>
-                            <p class="quote-item">把烦心事丢掉，腾出地方装鲜花</p>
-                            <p class="quote-item">万事尽头，终将美好</p>
-                        </div>
-                        <div class="chat-glass-box">
-                            <h4>想和我聊聊？</h4>
-                            <p>无论是技术交流、游戏开发探讨，还是寻找合作机会，我都非常欢迎。如果你有有趣的想法，不妨和我分享！</p>
-                            <a href="#contact" class="btn primary-btn">前往联系</a>
-                        </div>
-                        </div>
-                        <div class="timeline">
-                        <h3>时间线</h3>
-                        <div class="timeline-item">
-                            <span class="date">2026 - 至今</span>
-                            <p>开发之路，启程！</p>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="date">2025 - 2026</span>
-                            <p>明确了C#与.NET后端的发展方向，从零搭建并成功将个人主页Hakuto部署至GitHub Pages</p>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="date">2024 - 2025</span>
-                            <p>深入学习前后端分离架构，在 B 站等平台疯狂汲取养分</p>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="date">2022 - 2023</span>
-                            <p>正式踏入编程与游戏开发的世界，敲下了生命中第一行 "Hello World"</p>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 项目 -->
-        <section id="projects" class="module">
-            <div class="container">
-                <h2 class="section-title">项目笔记</h2>
-                <div class="project-filters">
-                    <button class="filter-btn active" data-filter="all">全部</button>
-                    <button class="filter-btn" data-filter="personal">个人项目</button>
-                    <button class="filter-btn" data-filter="study">学习笔记</button>
-                    <button class="filter-btn" data-filter="material">视频剪辑</button>
-                </div>
-                <!-- 个人项目 -->
-                <div class="project-grid">
-                    <div class="project-card" data-category="personal">
-                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=400" alt="独立游戏A">
-                        <h3>小猫历险记</h3>
-                        <p>使用Godot开发的一款2D平台跳跃游戏，包含丰富的关卡设计与流畅的动作手感。</p>
-                        <div class="project-links">
-                            <a href="#" class="btn small-btn">查看详情</a>
-                            <a href="https://www.bilibili.com/video/BV15bzJBkE6E/?spm_id_from=333.1387.upload.video_card.click&vd_source=94676c694ded4476a501276b7f962c49" target="_blank" class="btn small-btn bilibili-btn"><i class="fab fa-bilibili"></i> B站视频</a>
-                        </div>
-                    </div>
-                    <div class="project-card" data-category="personal">
-                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=400" alt="个人博客系统">
-                        <h3>问卷调查系统</h3>
-                        <p>基于Vue3 + Node.js搭建的现代化全栈系统，前后端分离，支持多类型题目与数据分析。</p>
-                        <div class="project-links">
-                            <a href="#" class="btn small-btn">查看详情</a>
-                            <a href="https://www.bilibili.com/video/BV1k1DMBHEug/?spm_id_from=333.1387.upload.video_card.click&vd_source=94676c694ded4476a501276b7f962c49" target="_blank" class="btn small-btn bilibili-btn"><i class="fab fa-bilibili"></i> B站视频</a>
-                        </div>
-                    </div>
-                    <div class="project-card" data-category="personal">
-                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=400" alt="UI组件库">
-                        <h3>winform视频管理系统</h3>
-                        <p>基于Winform开发的视频管理系统，支持视频的增删改查与提交功能。</p>
-                        <div class="project-links">
-                            <a href="#" class="btn small-btn">查看详情</a>
-                            <a href="https://www.bilibili.com/video/BV1r1SoBQEn9/?spm_id_from=333.1387.upload.video_card.click&vd_source=94676c694ded4476a501276b7f962c49" target="_blank" class="btn small-btn bilibili-btn"><i class="fab fa-bilibili"></i> B站视频</a>
-                        </div>
-                    </div>
-                    <div class="project-card" data-category="personal">
-                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=400" alt="WPF桌面应用开发">
-                        <h3>WPF桌面应用开发</h3>
-                        <p>使用 WPF 开发的桌面小部件程序“Mote”，集成了天气更新、每日一句与节假日倒计时等实用功能，界面极简。</p>
-                        <div class="project-links">
-                            <a href="#" class="btn small-btn">查看详情</a>
-                            <a href="https://www.bilibili.com/video/BV1vfQABcEmB/?spm_id_from=333.1387.homepage.video_card.click&vd_source=94676c694ded4476a501276b7f962c49" target="_blank" class="btn small-btn bilibili-btn"><i class="fab fa-bilibili"></i> B站视频</a>
-                        </div>
-                    </div>
-                     <!-- 学习笔记 -->
-                    <div class="project-card" data-category="study">
-                        <img src="https://images.unsplash.com/photo-1520509414578-d9cbf09933a1?q=80&w=704&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Unity Shader学习">
-                        <h3>UE4动作游戏</h3>
-                        <p>2.5D动作游戏，结合了UE引擎的先进技术和丰富的游戏玩法。</p>
-                        <div class="project-links">
-                            <a href="#" class="btn small-btn">查看详情</a>
-                            <a href="https://www.bilibili.com/video/BV15bzJBkE8N/?spm_id_from=333.1387.upload.video_card.click&vd_source=94676c694ded4476a501276b7f962c49" target="_blank" class="btn small-btn bilibili-btn"><i class="fab fa-bilibili"></i> B站视频</a>
-                        </div>
-                    </div>
-                     <!-- 求职素材 -->
-                    <div class="project-card" data-category="material">
-                        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&q=80&w=400" alt="简历展示">
-                        <h3>信息流视频</h3>
-                        <p>曾在信息流公司实习，参与了信息流视频的制作与推广工作。运营账号：DY:老贺做烤羊蝎子</p>
-                        <div class="project-links">
-                            <a href="#" class="btn small-btn">查看详情</a>
-                        </div>
-                    </div>
-                    <div class="project-card" data-category="material">
-                        <img src="https://plus.unsplash.com/premium_photo-1720796408865-77661f4f23c7?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="视频剪辑">
-                        <h3>3D动画视频</h3>
-                        <p>学习过3D动画制作，能够独立完成简单的动画短片。并在未来设计师大赛上获得省级三等奖。</p>
-                        <div class="project-links">
-                            <a href="#" class="btn small-btn">查看详情</a>
-                            <a href="https://pan.baidu.com/s/1h_z-ztMenxTPz40ehpT1vA?pwd=hjib" target="_blank" class="btn small-btn baidu-btn"><i class="fas fa-cloud"></i> 网盘观看</a>
-                        </div>
-                    </div>
-                    <div class="project-card" data-category="material">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400" alt="视频剪辑">
-                        <h3>漫剪视频</h3>
-                        <p>漫威电影动作超燃卡点混剪，使用了大量特效和剪辑技巧，使得视频节奏紧凑，观赏性极强。</p>
-                        <div class="project-links">
-                            <a href="#" class="btn small-btn">查看详情</a>
-                            <a href="https://pan.baidu.com/s/1ZM4m71ti1_hzTFEFhnNGfw?pwd=9msi" target="_blank" class="btn small-btn baidu-btn"><i class="fas fa-cloud"></i> 网盘观看</a>
-                        </div>
-                    </div>
-                    <div class="project-card" data-category="material">
-                        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&q=80&w=400" alt="在线简历页面">
-                        <h3>简历页面</h3>
-                        <p>展示我的个人简历，包含我的基本信息，教育背景，实习经历等。</p>
-                        <div class="project-links">
-                        <a href="#" class="btn small-btn">查看详情</a> 
+                    <div class="hero-actions">
+                        <a href="#work" class="btn primary-btn ripple" data-i18n="hero.cta1">View My Projects</a>
+                        <a href="https://github.com/Nickoboe/Hakuto" target="_blank" class="btn outline-btn ripple">
+                            <i class="fab fa-github"></i> GitHub
                         </a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-carousel" id="hero-carousel">
+                        <img src="assets/sucai/136792051_p0_master1200.jpg" alt="Hakuto" class="hero-slide active" loading="eager">
+                        <img src="assets/sucai/136056235_p0_master1200.jpg" alt="Hakuto" class="hero-slide" loading="lazy">
+                        <img src="assets/sucai/135989368_p0_master1200.jpg" alt="Hakuto" class="hero-slide" loading="lazy">
+                    </div>
+                    <div class="hero-carousel-dots" id="hero-dots">
+                        <button class="dot active" data-index="0"></button>
+                        <button class="dot" data-index="1"></button>
+                        <button class="dot" data-index="2"></button>
+                    </div>
+                    <div class="hero-glow"></div>
+                </div>
+            </div>
+            <div class="hero-scroll-hint">
+                <span data-i18n="hero.scroll">Scroll Down</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- Work / Projects -->
+        <section id="work" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="work.title">Selected Works</h2>
+                    <p class="section-subtitle" data-i18n="work.subtitle">Projects & creative works</p>
+                </div>
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all" data-i18n="work.all">All</button>
+                    <button class="filter-btn" data-filter="personal" data-i18n="work.personal">Personal</button>
+                    <button class="filter-btn" data-filter="study" data-i18n="work.study">Study</button>
+                    <button class="filter-btn" data-filter="material" data-i18n="work.video">Video</button>
+                </div>
+                <div class="project-grid">
+                    <div class="project-card featured" data-category="personal">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800" alt="Cat Adventure" loading="lazy">
+                            <span class="card-tag tag-game" data-i18n="work.tag_game">Game</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 data-i18n="project.cat_title">Cat Adventure</h3>
+                            <p data-i18n="project.cat_desc">A 2D platformer game built with Godot engine, featuring rich level design and smooth action mechanics.</p>
+                            <div class="card-actions">
+                                <a href="https://www.bilibili.com/video/BV15bzJBkE6E/?spm_id_from=333.1387.upload.video_card.click&vd_source=94676c694ded4476a501276b7f962c49" target="_blank" class="card-link"><i class="fab fa-bilibili"></i> Bilibili</a>
+                                <button class="card-link detail-trigger"><i class="fas fa-arrow-right"></i> <span data-i18n="work.detail">Details</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="personal">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400" alt="Survey System" loading="lazy">
+                            <span class="card-tag tag-web">Web</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 data-i18n="project.survey_title">Survey System</h3>
+                            <p data-i18n="project.survey_desc">A modern full-stack system built with Vue3 + Node.js, supporting multiple question types and data analytics.</p>
+                            <div class="card-actions">
+                                <a href="https://www.bilibili.com/video/BV1k1DMBHEug/?spm_id_from=333.1387.upload.video_card.click&vd_source=94676c694ded4476a501276b7f962c49" target="_blank" class="card-link"><i class="fab fa-bilibili"></i> Bilibili</a>
+                                <button class="card-link detail-trigger"><i class="fas fa-arrow-right"></i> <span data-i18n="work.detail">Details</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="personal">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=400" alt="Winform Video Manager" loading="lazy">
+                            <span class="card-tag tag-desktop">Desktop</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 data-i18n="project.winform_title">Winform Video Manager</h3>
+                            <p data-i18n="project.winform_desc">A video management system built with Winform, supporting CRUD operations and submission workflow.</p>
+                            <div class="card-actions">
+                                <a href="https://www.bilibili.com/video/BV1r1SoBQEn9/?spm_id_from=333.1387.upload.video_card.click&vd_source=94676c694ded4476a501276b7f962c49" target="_blank" class="card-link"><i class="fab fa-bilibili"></i> Bilibili</a>
+                                <button class="card-link detail-trigger"><i class="fas fa-arrow-right"></i> <span data-i18n="work.detail">Details</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="personal">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&q=80&w=400" alt="WPF Mote" loading="lazy">
+                            <span class="card-tag tag-desktop">Desktop</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 data-i18n="project.wpf_title">WPF Desktop Widget - Mote</h3>
+                            <p data-i18n="project.wpf_desc">A minimal desktop widget built with WPF, integrating weather updates, daily quotes, and holiday countdown.</p>
+                            <div class="card-actions">
+                                <a href="https://www.bilibili.com/video/BV1vfQABcEmB/?spm_id_from=333.1387.homepage.video_card.click&vd_source=94676c694ded4476a501276b7f962c49" target="_blank" class="card-link"><i class="fab fa-bilibili"></i> Bilibili</a>
+                                <button class="card-link detail-trigger"><i class="fas fa-arrow-right"></i> <span data-i18n="work.detail">Details</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="study">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=400" alt="UE4 Action Game" loading="lazy">
+                            <span class="card-tag tag-game" data-i18n="work.tag_game">Game</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 data-i18n="project.ue4_title">UE4 Action Game</h3>
+                            <p data-i18n="project.ue4_desc">A 2.5D action game combining Unreal Engine's advanced technology with rich gameplay mechanics.</p>
+                            <div class="card-actions">
+                                <a href="https://www.bilibili.com/video/BV15bzJBkE8N/?spm_id_from=333.1387.upload.video_card.click&vd_source=94676c694ded4476a501276b7f962c49" target="_blank" class="card-link"><i class="fab fa-bilibili"></i> Bilibili</a>
+                                <button class="card-link detail-trigger"><i class="fas fa-arrow-right"></i> <span data-i18n="work.detail">Details</span></button>
+                            </div>
                         </div>
                     </div>
                     <div class="project-card" data-category="material">
-                        <img src="https://plus.unsplash.com/premium_photo-1679079456083-9f288e224e96?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="视频剪辑">
-                        <h3>口播剪辑</h3>
-                        <p>制作个人介绍卡与招聘PPT模板，便于简历投递时直观呈现优势与职业方向。</p>
-                        <div class="project-links">
-                            <a href="#" class="btn small-btn">查看详情</a>
-                            <a href="https://pan.baidu.com/s/1itEbYnu7hvkxN2GdjFzidg?pwd=a4n6" target="_blank" class="btn small-btn baidu-btn"><i class="fas fa-cloud"></i> 网盘观看</a>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&q=80&w=400" alt="Info Flow Videos" loading="lazy">
+                            <span class="card-tag tag-video">Video</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 data-i18n="project.info_title">Information Flow Videos</h3>
+                            <p data-i18n="project.info_desc">Internship experience in information flow video production and promotion. Account: DY: LaoHe BBQ</p>
+                            <div class="card-actions">
+                                <button class="card-link detail-trigger"><i class="fas fa-arrow-right"></i> <span data-i18n="work.detail">Details</span></button>
+                            </div>
                         </div>
                     </div>
                     <div class="project-card" data-category="material">
-                        <img src="https://plus.unsplash.com/premium_photo-1683287925874-f8b46c6437ae?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="视频剪辑">
-                        <h3>营销号制作</h3>
-                        <p>网络流行语与热点事件结合，制作具有传播力的营销内容。</p>
-                        <div class="project-links">
-                            <a href="#" class="btn small-btn">查看详情</a>
-                            <a href="https://pan.baidu.com/s/1vHkuCPQjVqGBYF_E4vRe4A?pwd=ja5t" target="_blank" class="btn small-btn baidu-btn"><i class="fas fa-cloud"></i> 网盘观看</a>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&q=80&w=400" alt="3D Animation" loading="lazy">
+                            <span class="card-tag tag-video">Video</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 data-i18n="project.anim_title">3D Animation</h3>
+                            <p data-i18n="project.anim_desc">Studied 3D animation production, capable of creating short animated films. Won provincial 3rd prize in Future Designer competition.</p>
+                            <div class="card-actions">
+                                <a href="https://pan.baidu.com/s/1h_z-ztMenxTPz40ehpT1vA?pwd=hjib" target="_blank" class="card-link"><i class="fas fa-cloud"></i> <span data-i18n="work.cloud">Cloud</span></a>
+                                <button class="card-link detail-trigger"><i class="fas fa-arrow-right"></i> <span data-i18n="work.detail">Details</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="material">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=400" alt="AMV Edit" loading="lazy">
+                            <span class="card-tag tag-video">Video</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 data-i18n="project.amv_title">AMV Edit</h3>
+                            <p data-i18n="project.amv_desc">Marvel movie action-packed beat-synced mashup, featuring extensive effects and editing techniques for an exciting visual experience.</p>
+                            <div class="card-actions">
+                                <a href="https://pan.baidu.com/s/1ZM4m71ti1_hzTFEFhnNGfw?pwd=9msi" target="_blank" class="card-link"><i class="fas fa-cloud"></i> <span data-i18n="work.cloud">Cloud</span></a>
+                                <button class="card-link detail-trigger"><i class="fas fa-arrow-right"></i> <span data-i18n="work.detail">Details</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="material">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&q=80&w=400" alt="Resume Page" loading="lazy">
+                            <span class="card-tag tag-web">Web</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 data-i18n="project.resume_title">Resume Page</h3>
+                            <p data-i18n="project.resume_desc">Personal resume showcase including basic info, education background, and internship experience.</p>
+                            <div class="card-actions">
+                                <button class="card-link detail-trigger"><i class="fas fa-arrow-right"></i> <span data-i18n="work.detail">Details</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="material">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&q=80&w=400" alt="Broadcast Editing" loading="lazy">
+                            <span class="card-tag tag-video">Video</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 data-i18n="project.oral_title">Broadcast Editing</h3>
+                            <p data-i18n="project.oral_desc">Created personal introduction cards and recruitment PPT templates for intuitive resume presentation.</p>
+                            <div class="card-actions">
+                                <a href="https://pan.baidu.com/s/1itEbYnu7hvkxN2GdjFzidg?pwd=a4n6" target="_blank" class="card-link"><i class="fas fa-cloud"></i> <span data-i18n="work.cloud">Cloud</span></a>
+                                <button class="card-link detail-trigger"><i class="fas fa-arrow-right"></i> <span data-i18n="work.detail">Details</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="material">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&q=80&w=400" alt="Marketing Content" loading="lazy">
+                            <span class="card-tag tag-video">Video</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 data-i18n="project.marketing_title">Marketing Content</h3>
+                            <p data-i18n="project.marketing_desc">Combining internet trends and hot topics to create viral marketing content with strong engagement.</p>
+                            <div class="card-actions">
+                                <a href="https://pan.baidu.com/s/1vHkuCPQjVqGBYF_E4vRe4A?pwd=ja5t" target="_blank" class="card-link"><i class="fas fa-cloud"></i> <span data-i18n="work.cloud">Cloud</span></a>
+                                <button class="card-link detail-trigger"><i class="fas fa-arrow-right"></i> <span data-i18n="work.detail">Details</span></button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 我的频道 -->
-        <section id="channel" class="module">
+        <!-- About -->
+        <section id="about" class="section about-section">
             <div class="container">
-                <h2 class="section-title">我的频道</h2>
-                <div class="channel-links">
-                    <a href="https://space.bilibili.com/286718390?spm_id_from=333.1007.0.0" target="_blank" class="channel-card bilibili-card">
-                        <i class="fab fa-bilibili"></i>
-                        <span>B站主页</span>
-                    </a>
-                    <a href="https://github.com/Nickoboe/Hakuto" target="_blank" class="channel-card github-card">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub主页</span>
-                    </a>
+                <div class="about-grid">
+                    <div class="about-image tilt-card">
+                        <img src="assets/sucai/145989778_p0.png" alt="Hakuto" loading="lazy">
+                    </div>
+                    <div class="about-content">
+                        <div class="about-tags">
+                            <span class="about-tag"><i class="fas fa-gamepad"></i> <span data-i18n="about.tag1">Game Enthusiast</span></span>
+                            <span class="about-tag"><i class="fas fa-code"></i> <span data-i18n="about.tag2">Developer</span></span>
+                        </div>
+                        <h2 class="about-title" data-i18n="about.title">About Me</h2>
+                        <p class="about-text" data-i18n="about.text1">I'm a developer who loves games and programming, passionate about exploring new technologies and creating interesting projects.</p>
+                        <p class="about-text" data-i18n="about.text2">I find joy in code and experience different worlds through games. My journey bridges the gap between creativity and technology.</p>
+                        <div class="about-quote">
+                            <div class="quote-carousel">
+                                <p class="quote-item active" data-i18n="about.quote1">"Life is not just about the daily grind, but also about code and the horizon beyond."</p>
+                                <p class="quote-item" data-i18n="about.quote2">"Days may repeat, but happiness doesn't."</p>
+                                <p class="quote-item" data-i18n="about.quote3">"Let go of worries, make room for flowers."</p>
+                                <p class="quote-item" data-i18n="about.quote4">"Everything will be beautiful in the end."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-bottom">
+                    <div class="skills-card">
+                        <h3><i class="fas fa-bolt"></i> <span data-i18n="about.skills_title">Skills & Abilities</span></h3>
+                        <div class="skill-bar-group">
+                            <div class="skill-bar-item">
+                                <div class="skill-bar-header"><span><i class="fas fa-laptop-code"></i> <span data-i18n="about.skill_frontend">Frontend Development</span></span><span class="skill-level" data-target="85">0</span></div>
+                                <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
+                            </div>
+                            <div class="skill-bar-item">
+                                <div class="skill-bar-header"><span><i class="fas fa-server"></i> <span data-i18n="about.skill_backend">Backend (C# / .NET)</span></span><span class="skill-level" data-target="80">0</span></div>
+                                <div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div>
+                            </div>
+                            <div class="skill-bar-item">
+                                <div class="skill-bar-header"><span><i class="fas fa-gamepad"></i> <span data-i18n="about.skill_gamedev">Game Development</span></span><span class="skill-level" data-target="75">0</span></div>
+                                <div class="skill-bar"><div class="skill-fill" data-width="75%"></div></div>
+                            </div>
+                            <div class="skill-bar-item">
+                                <div class="skill-bar-header"><span><i class="fas fa-film"></i> <span data-i18n="about.skill_editing">Video Editing</span></span><span class="skill-level" data-target="90">0</span></div>
+                                <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
+                            </div>
+                        </div>
+                        <div class="tech-icons">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity" title="Unity" loading="lazy">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" title="HTML5" loading="lazy">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" title="CSS3" loading="lazy">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS" title="JavaScript" loading="lazy">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue" title="Vue.js" loading="lazy">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt=".NET" title=".NET" loading="lazy">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" title="C#" loading="lazy">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node" title="Node.js" loading="lazy">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg" alt="Godot" title="Godot" loading="lazy">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg" alt="PS" title="Photoshop" loading="lazy">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-original.svg" alt="PR" title="Premiere Pro" loading="lazy">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-original.svg" alt="AE" title="After Effects" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-icon"><i class="fas fa-eye"></i></div>
+                        <h3 data-i18n="about.cta_title">Want to Chat?</h3>
+                        <p data-i18n="about.cta_text">Whether it's tech discussion, game dev exploration, or collaboration opportunities, I'm always open to interesting ideas!</p>
+                        <a href="#contact" class="btn primary-btn ripple" data-i18n="about.cta_btn">Get in Touch</a>
+                    </div>
+                </div>
+                <div class="timeline-section">
+                    <h3 class="timeline-title"><i class="fas fa-road"></i> <span data-i18n="about.timeline_title">My Journey</span></h3>
+                    <div class="timeline">
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2026 - <span data-i18n="about.present">Present</span></span><p data-i18n="about.tl1">Development journey, setting sail!</p></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2025 - 2026</span><p data-i18n="about.tl2">Focused on C# and .NET backend development, built and deployed personal homepage to GitHub Pages.</p></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2024 - 2025</span><p data-i18n="about.tl3">Studied front-end/back-end separation architecture, learning extensively on Bilibili and other platforms.</p></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2022 - 2023</span><p data-i18n="about.tl4">Officially entered the world of programming and game development, wrote the first "Hello World".</p></div></div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 技能 -->
-        <section id="skills" class="module">
+        <!-- Contact -->
+        <section id="contact" class="section">
             <div class="container">
-                <h2 class="section-title">我的技能</h2>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity">
-                        <span>Unity</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
-                        <span>HTML5</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
-                        <span>CSS3</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue">
-                        <span>Vue.js</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt=".NET">
-                        <span>.NET</span>
-                    </div>
-                    <div class="skill-item">
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#">
-                        <span>C#</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
-                        <span>Node.js</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg" alt="Vite">
-                        <span>Vite</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg" alt="Godot">
-                        <span>Godot</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg" alt="Photoshop">
-                        <span>PS</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-original.svg" alt="Premiere Pro">
-                        <span>PR</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-original.svg" alt="After Effects">
-                        <span>AE</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="custom-icon"><i class="fas fa-video"></i></div>
-                        <span>剪映</span>
-                    </div>
-                    </div>
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="contact.title">Contact</h2>
+                    <p class="section-subtitle" data-i18n="contact.subtitle">Feel free to reach out. I'd love to hear from you.</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- 联系我 -->
-        <section id="contact" class="module">
-            <div class="container">
-                <h2 class="section-title">联系我</h2>
-                <div class="contact-options">
-                    <div class="contact-card popup-trigger" data-popup="email-popup">
-                        <i class="fas fa-envelope"></i>
-                        <span>发送邮件</span>
+                <div class="contact-grid">
+                    <div class="contact-info-card">
+                        <div class="contact-avatar"><img src="assets/sucai/136056235_p0_master1200.jpg" alt="Hakuto" loading="lazy"></div>
+                        <h3>Hakuto</h3>
+                        <p class="contact-tagline" data-i18n="contact.tagline">Ready to create something amazing?</p>
+                        <div class="contact-methods">
+                            <div class="contact-method"><i class="fas fa-envelope"></i><span>3147516285@qq.com</span></div>
+                            <div class="contact-method"><i class="fas fa-map-marker-alt"></i><span>China (GMT+8)</span></div>
+                        </div>
+                        <div class="contact-socials">
+                            <a href="https://space.bilibili.com/286718390" target="_blank" title="Bilibili"><i class="fab fa-bilibili"></i></a>
+                            <a href="https://github.com/Nickoboe/Hakuto" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                            <button class="popup-trigger" data-popup="wechat-popup" title="WeChat"><i class="fab fa-weixin"></i></button>
+                            <button class="popup-trigger" data-popup="qq-popup" title="QQ"><i class="fab fa-qq"></i></button>
+                        </div>
                     </div>
-                    <div class="contact-card popup-trigger" data-popup="wechat-popup">
-                        <i class="fab fa-weixin"></i>
-                        <span>添加微信</span>
-                    </div>
-                    <div class="contact-card popup-trigger" data-popup="qq-popup">
-                        <i class="fab fa-qq"></i>
-                        <span>添加QQ</span>
-                    </div>
+                    <form id="contact-form" class="contact-form-card">
+                        <div class="form-row">
+                            <div class="form-group"><label data-i18n="contact.name_label">YOUR NAME</label><input type="text" name="from_name" required placeholder="John Doe" data-i18n-placeholder="contact.name_ph"></div>
+                            <div class="form-group"><label data-i18n="contact.email_label">EMAIL ADDRESS</label><input type="email" name="from_email" required placeholder="john@example.com" data-i18n-placeholder="contact.email_ph"></div>
+                        </div>
+                        <div class="form-group"><label data-i18n="contact.subject_label">SUBJECT</label><input type="text" name="subject" required placeholder="Collaboration Request" data-i18n-placeholder="contact.subject_ph"></div>
+                        <div class="form-group"><label data-i18n="contact.message_label">MESSAGE</label><textarea name="message" rows="5" required placeholder="Write your message here..." data-i18n-placeholder="contact.message_ph"></textarea></div>
+                        <button type="submit" class="btn primary-btn submit-btn ripple" id="submit-btn">
+                            <span class="btn-text" data-i18n="contact.send">SEND MESSAGE</span>
+                            <span class="btn-loading" style="display:none"><i class="fas fa-spinner fa-spin"></i></span>
+                            <i class="fas fa-paper-plane btn-icon"></i>
+                        </button>
+                        <p id="form-status" class="form-status"></p>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- 二维码弹窗 -->
-    <div id="wechat-popup" class="popup-overlay">
-        <div class="popup-content">
-            <span class="close-btn">&times;</span>
-            <h3>扫描二维码添加微信</h3>
-            <img src="assets/wechat-qr.png" alt="微信二维码" class="qr-image">
-        </div>
-    </div>
-    
-    <div id="qq-popup" class="popup-overlay">
-        <div class="popup-content">
-            <span class="close-btn">&times;</span>
-            <h3>扫描二维码添加QQ</h3>
-            <img src="assets/qq-qr.png" alt="QQ二维码" class="qr-image">
-        </div>
-    </div>
+    <!-- QR Popups -->
+    <div id="wechat-popup" class="popup-overlay"><div class="popup-content"><button class="close-btn">&times;</button><h3 data-i18n="popup.wechat">Scan to add WeChat</h3><img src="assets/wechat-qr.png" alt="WeChat QR" class="qr-image"></div></div>
+    <div id="qq-popup" class="popup-overlay"><div class="popup-content"><button class="close-btn">&times;</button><h3 data-i18n="popup.qq">Scan to add QQ</h3><img src="assets/qq-qr.png" alt="QQ QR" class="qr-image"></div></div>
+    <div id="project-detail-popup" class="popup-overlay"><div class="popup-content detail-popup"><button class="close-btn">&times;</button><img src="" alt="" class="detail-image"><h3 class="detail-title"></h3><p class="detail-description"></p></div></div>
 
-    <div id="email-popup" class="popup-overlay">
-        <div class="popup-content">
-            <span class="close-btn">&times;</span>
-            <h3>作者的邮件是：</h3>
-            <p style="margin-top: 1rem; font-size: 1rem; color: #ddd;">3147516285@qq.com</p>
-        </div>
-    </div>
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
-    <div id="project-detail-popup" class="popup-overlay">
-        <div class="popup-content detail-popup-content">
-            <span class="close-btn">&times;</span>
-            <img src="" alt="项目详情图" class="detail-image">
-            <h3 class="detail-title"></h3>
-            <p class="detail-description"></p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <a href="#home" class="footer-brand">Hakuto</a>
+            <p class="footer-copy">&copy; 2026 Hakuto &middot; Built with <i class="fas fa-heart" style="color:#e74c3c;font-size:0.7rem"></i></p>
+            <div class="footer-socials">
+                <a href="https://github.com/Nickoboe/Hakuto" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://space.bilibili.com/286718390" target="_blank"><i class="fab fa-bilibili"></i></a>
+            </div>
         </div>
-    </div>
-
-    <!-- 返回顶部按钮 -->
-    <div id="back-to-top" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>
