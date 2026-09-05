@@ -65,7 +65,7 @@
     --bg-gradient: linear-gradient(135deg, #0b1220 0%, #0e1626 40%, #111a2c 70%, #0d1526 100%);
 }
 
-[data-theme="dark"] .blob { opacity: 0.3; }
+[data-theme="dark"] .blob { opacity: 0.25; }
 
 [data-theme="dark"] .tag-video { color: #7aa5f8; }
 [data-theme="dark"] .tag-graphic { color: #8f9dff; }
@@ -92,20 +92,44 @@ a { text-decoration: none; color: inherit; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
 ul { list-style: none; }
 
-/* ===== Animated Background ===== */
+/* ===== Theme-aware Landscape Background ===== */
+.bg-photo {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    background: url('../assets/bg/day.jpg') center / cover no-repeat;
+}
+
+[data-theme="dark"] .bg-photo {
+    background-image: url('../assets/bg/night.jpg');
+}
+
+/* readability veil above the photo, below the content glass */
+.bg-veil {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: rgba(244, 245, 251, 0.7);
+    transition: background 0.4s ease;
+}
+
+[data-theme="dark"] .bg-veil {
+    background: rgba(9, 13, 26, 0.74);
+}
+
+/* ===== Animated Background Blobs ===== */
 .bg-animation {
     position: fixed;
     inset: 0;
     z-index: -1;
     overflow: hidden;
-    background: var(--bg-gradient);
 }
 
 .blob {
     position: absolute;
     border-radius: 50%;
     filter: blur(80px);
-    opacity: 0.5;
+    opacity: 0.4;
     will-change: transform;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
@@ -692,7 +716,7 @@ ul { list-style: none; }
     transform: translateY(-1px);
 }
 
-/* ===== Project Grid (Bento) ===== */
+/* ===== Project Grid (uniform portfolio wall) ===== */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -731,22 +755,27 @@ ul { list-style: none; }
 
 .project-card:hover::before { opacity: 1; }
 
-.project-card.featured {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
-.project-card.featured .card-image { height: 320px; }
-
 .project-card.hide {
     display: none;
 }
 
 .card-image {
     position: relative;
-    height: 180px;
+    aspect-ratio: 16 / 10;
     overflow: hidden;
 }
+
+.card-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgba(10, 16, 32, 0.18) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.project-card:hover .card-image::after { opacity: 1; }
 
 .card-image img {
     width: 100%;
@@ -756,7 +785,7 @@ ul { list-style: none; }
 }
 
 .project-card:hover .card-image img {
-    transform: scale(1.08);
+    transform: scale(1.06);
 }
 
 .card-tag {
@@ -802,7 +831,10 @@ ul { list-style: none; }
     font-size: 0.85rem;
     color: var(--text-secondary);
     line-height: 1.6;
-    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
     margin-bottom: 0.8rem;
 }
 
@@ -1651,13 +1683,6 @@ body.flat .section { padding: 60px 5% 50px; }
 
     .project-grid { grid-template-columns: repeat(2, 1fr); }
 
-    .project-card.featured {
-        grid-column: span 2;
-        grid-row: span 1;
-    }
-
-    .project-card.featured .card-image { height: 220px; }
-
     .about-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -1721,8 +1746,6 @@ body.flat .section { padding: 60px 5% 50px; }
     .hero-scroll-hint { display: none; }
 
     .project-grid { grid-template-columns: 1fr; }
-    .project-card.featured { grid-column: span 1; }
-    .project-card.featured .card-image { height: 200px; }
 
     .section { padding: 70px 5% 60px; }
     .section-title { font-size: 1.8rem; }
