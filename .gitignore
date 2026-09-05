@@ -47,3 +47,7 @@ coverage/
 # Temporary files
 *.tmp
 *.temp
+# 本地保留但不再入库的旧素材（已被正式版封面替代）
+sample/
+assets/sucai/
+assets/avatar.jpg

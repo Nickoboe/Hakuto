@@ -1,61 +1,50 @@
-# Hakuto - 个人主页
+# Hakuto · 新媒体作品集
 
-一个现代化的个人主页网站，采用毛玻璃风格设计，包含多种交互效果。
+面向新媒体方向的个人作品集网站，蓝色玻璃拟态风格，支持明暗双主题。
+
+线上地址：[show.hakuto837.com](https://show.hakuto837.com)
 
 ## 功能特性
 
-- 🌙 黑夜/白天主题切换
-- 🔄 旋转头像动画
+- 🌙 明/暗主题切换（跟随系统 + 手动记忆）
+- 🌐 中英双语切换
+- 🖼️ 全本地 SVG 作品封面，无外部图床依赖
+- 🎬 打字机、滚动显现、3D 倾斜、涟漪等交互动效
 - 📱 响应式设计，支持移动端
-- 🎨 毛玻璃效果UI
-- 📝 项目笔记展示
-- 🔗 社交媒体链接
-- 💬 联系方式弹窗
-- 📊 项目过滤功能
-- 🎯 轮播文字效果
+- 💬 微信 / QQ 二维码弹窗 + EmailJS 联系表单
+- 🗂️ 作品分类筛选（视频剪辑 / 图文创作 / 开发项目）
 
 ## 技术栈
 
-- HTML5
-- CSS3 (Flexbox, Grid, Animations)
-- JavaScript (ES6+)
-- Font Awesome 图标库
+- HTML5 / CSS3（CSS 变量、Grid、毛玻璃）
+- 原生 JavaScript（ES6+）
+- Font Awesome 图标（cdnjs）
+- devicon 技能图标（已本地化）
 
 ## 项目结构
 
 ```
-Hakuto/
+Showmore/
 ├── index.html          # 主页面
-├── css/
-│   └── style.css       # 样式文件
-├── js/
-│   └── main.js         # JavaScript逻辑
-├── assets/             # 资源文件
-│   ├── avatar.jpg      # 头像图片
+├── css/style.css       # 样式（含暗色主题变量组）
+├── js/main.js          # 交互逻辑与双语字典
+├── js/vendor/          # 本地化的第三方库（EmailJS）
+├── assets/
+│   ├── favicon.svg     # 月亮标签页图标
+│   ├── covers/         # 作品封面（本地 SVG）
+│   ├── icons/          # 技能图标（本地 SVG）
 │   ├── wechat-qr.png   # 微信二维码
 │   └── qq-qr.png       # QQ二维码
-└── README.md           # 项目说明
+└── CNAME               # 自定义域名
 ```
 
 ## 本地运行
 
-1. 克隆项目到本地
-2. 在浏览器中打开 `index.html` 文件
+在项目目录启动任意静态服务器（如 `npx serve` 或 VS Code Live Server），浏览器打开即可。
 
 ## 部署
 
-该项目为纯静态网站，可以部署到任何静态网站托管服务：
-
-- GitHub Pages
-- Netlify
-- Vercel
-- 阿里云OSS等
-
-## 自定义
-
-- 修改 `css/style.css` 中的变量来自定义颜色主题
-- 在 `index.html` 中更新个人信息和项目内容
-- 替换 `assets/` 中的图片文件
+推送至 `main` 分支后由 GitHub Pages 自动构建发布，绑定域名 `show.hakuto837.com`。
 
 ## 许可证
 

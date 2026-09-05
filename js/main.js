@@ -11,12 +11,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const translations = {
         zh: {
             'nav.home': '首页', 'nav.work': '作品', 'nav.about': '关于', 'nav.contact': '联系', 'nav.hire': '联系我',
-            'hero.tag': '游戏爱好者 & 开发者',
-            'hero.typing': ['你好，我是 Hakuto', '前端开发学习者', 'Unity开发学习者'],
-            'hero.cta1': '查看我的项目', 'hero.scroll': '向下滚动',
-            'work.title': '时空观测记录', 'work.subtitle': '项目与创意作品集',
-            'work.all': '全部', 'work.personal': '个人项目', 'work.study': '学习笔记', 'work.video': '视频剪辑',
-            'work.detail': '详情', 'work.cloud': '网盘', 'work.tag_game': '游戏',
+            'hero.tag': '新媒体运营 & 内容创作',
+            'hero.typing': ['你好，我是 Hakuto', '短视频剪辑与图文策划', '平台内容运营实践者'],
+            'hero.q1': '"好内容自己会说话。"',
+            'hero.q2': '"持续输出，是创作者最好的复利。"',
+            'hero.q3': '"把每一次发布，都当成一件作品。"',
+            'hero.q4': '"先完成，再完美。"',
+            'hero.stat_works': '作品项目', 'hero.stat_video': '视频作品', 'hero.stat_tools': '创作工具',
+            'hero.cta1': '查看我的作品', 'hero.scroll': '向下滚动',
+            'work.title': '作品精选', 'work.subtitle': '短视频 · 图文 · 开发项目',
+            'work.all': '全部', 'work.video': '视频剪辑', 'work.graphic': '图文创作', 'work.dev': '开发项目',
+            'work.detail': '详情', 'work.cloud': '网盘',
+            'work.tag_video': '视频', 'work.tag_graphic': '图文', 'work.tag_dev': '开发',
+            'project.info_title': '信息流视频',
+            'project.info_desc': '在信息流公司参与短视频的制作与推广，运营抖音账号「老贺做烤羊蝎子」。',
+            'project.anim_title': '3D动画视频',
+            'project.anim_desc': '学习 3D 动画制作，可独立完成动画短片，曾获未来设计师大赛省级三等奖。',
+            'project.amv_title': '漫剪视频',
+            'project.amv_desc': '漫威电影动作卡点混剪，融合大量特效与剪辑技巧，节奏紧凑、观赏性强。',
+            'project.oral_title': '口播剪辑',
+            'project.oral_desc': '设计个人介绍卡与求职 PPT 模板，让简历投递更直观地呈现个人优势与职业方向。',
+            'project.marketing_title': '营销号制作',
+            'project.marketing_desc': '结合网络热点与流行语，策划制作具有传播力的营销图文内容。',
+            'project.resume_title': '简历页面',
+            'project.resume_desc': '个人简历展示页，涵盖基本信息、教育背景与实习经历，兼顾图文排版与前端实现。',
             'project.cat_title': '小猫历险记',
             'project.cat_desc': '使用Godot开发的一款2D平台跳跃游戏，包含丰富的关卡设计与流畅的动作手感。',
             'project.survey_title': '问卷调查系统',
@@ -27,38 +45,27 @@ document.addEventListener('DOMContentLoaded', () => {
             'project.wpf_desc': '使用WPF开发的桌面小部件程序，集成了天气更新、每日一句与节假日倒计时等实用功能。',
             'project.ue4_title': 'UE4动作游戏',
             'project.ue4_desc': '2.5D动作游戏，结合了UE引擎的先进技术和丰富的游戏玩法。',
-            'project.info_title': '信息流视频',
-            'project.info_desc': '曾在信息流公司实习，参与了信息流视频的制作与推广工作。运营账号：DY:老贺做烤羊蝎子',
-            'project.anim_title': '3D动画视频',
-            'project.anim_desc': '学习过3D动画制作，能够独立完成简单的动画短片。并在未来设计师大赛上获得省级三等奖。',
-            'project.amv_title': '漫剪视频',
-            'project.amv_desc': '漫威电影动作超燃卡点混剪，使用了大量特效和剪辑技巧，使得视频节奏紧凑，观赏性极强。',
-            'project.resume_title': '简历页面',
-            'project.resume_desc': '展示我的个人简历，包含我的基本信息，教育背景，实习经历等。',
-            'project.oral_title': '口播剪辑',
-            'project.oral_desc': '制作个人介绍卡与招聘PPT模板，便于简历投递时直观呈现优势与职业方向。',
-            'project.marketing_title': '营销号制作',
-            'project.marketing_desc': '网络流行语与热点事件结合，制作具有传播力的营销内容。',
-            'about.tag1': '游戏爱好者', 'about.tag2': '开发者', 'about.title': '关于我',
-            'about.text1': '我是一名热爱游戏和编程的开发者，喜欢探索新技术，创造有趣的项目。',
-            'about.text2': '我喜欢在代码中寻找乐趣，在游戏中体验不同的世界。我的旅程连接着创意与技术之间的桥梁。',
+            'about.tag1': '内容创作者', 'about.tag2': '视频剪辑师', 'about.title': '关于我',
+            'about.monogram_sub': '新媒体 · 内容 · 技术',
+            'about.text1': '我是一名面向新媒体方向的内容创作者，擅长短视频剪辑与图文策划，同时具备前端与桌面开发能力，能为内容加上技术的翅膀。',
+            'about.text2': '从选题、剪辑到账号运营，我在一次次发布中打磨内容手感；写代码则让我能把想法快速做成可用的工具与页面。',
             'about.quote1': '"生活不止眼前的苟且，还有代码和远方"',
             'about.quote2': '"日子是重复的，但快乐不是"',
             'about.quote3': '"把烦心事丢掉，腾出地方装鲜花"',
             'about.quote4': '"万事尽头，终将美好"',
             'about.skills_title': '技能与能力',
-            'about.skill_frontend': '前端开发', 'about.skill_backend': '后端 (C# / .NET)',
-            'about.skill_gamedev': '游戏开发', 'about.skill_editing': '视频剪辑',
+            'about.skill_editing': '视频剪辑', 'about.skill_graphic': '图文创作',
+            'about.skill_operation': '账号运营', 'about.skill_frontend': '前端开发',
             'about.cta_title': '想和我聊聊？',
-            'about.cta_text': '无论是技术交流、游戏开发探讨，还是寻找合作机会，我都非常欢迎。如果你有有趣的想法，不妨和我分享！',
+            'about.cta_text': '无论是内容合作、账号运营交流，还是想找一位懂技术的创作伙伴，都欢迎和我聊聊你的想法！',
             'about.cta_btn': '前往联系',
             'about.timeline_title': '我的旅程', 'about.present': '至今',
-            'about.tl1': '开发之路，启程！',
+            'about.tl1': '内容创作与开发并行，持续输出作品。',
             'about.tl2': '明确了C#与.NET后端的发展方向，从零搭建并成功将个人主页部署至GitHub Pages。',
             'about.tl3': '深入学习前后端分离架构，在B站等平台疯狂汲取养分。',
             'about.tl4': '正式踏入编程与游戏开发的世界，敲下了生命中第一行 "Hello World"。',
             'contact.title': '建立联系', 'contact.subtitle': '有任何想法或合作意向？欢迎随时联系我。',
-            'contact.tagline': '期待与你一起创造精彩？',
+            'contact.tagline': '用内容创造价值，欢迎合作洽谈。',
             'contact.name_label': '你的姓名', 'contact.name_ph': '请输入姓名',
             'contact.email_label': '邮箱地址', 'contact.email_ph': 'your@email.com',
             'contact.subject_label': '主题', 'contact.subject_ph': '合作咨询',
@@ -69,54 +76,61 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         en: {
             'nav.home': 'Home', 'nav.work': 'Work', 'nav.about': 'About', 'nav.contact': 'Contact', 'nav.hire': 'HIRE ME',
-            'hero.tag': 'Game Enthusiast & Developer',
-            'hero.typing': ["Hello, I'm Hakuto", 'Frontend Dev Learner', 'Unity Dev Learner'],
-            'hero.cta1': 'View My Projects', 'hero.scroll': 'Scroll Down',
-            'work.title': 'Selected Works', 'work.subtitle': 'Projects & creative works',
-            'work.all': 'All', 'work.personal': 'Personal', 'work.study': 'Study', 'work.video': 'Video',
-            'work.detail': 'Details', 'work.cloud': 'Cloud', 'work.tag_game': 'Game',
+            'hero.tag': 'New Media Operations & Content Creation',
+            'hero.typing': ["Hello, I'm Hakuto", 'Short-video Editing & Content Planning', 'Platform Content Operator'],
+            'hero.q1': '"Good content speaks for itself."',
+            'hero.q2': '"Consistency is a creator\'s best compounding."',
+            'hero.q3': '"Treat every post as a portfolio piece."',
+            'hero.q4': '"Done first, perfect later."',
+            'hero.stat_works': 'Projects', 'hero.stat_video': 'Videos', 'hero.stat_tools': 'Tools',
+            'hero.cta1': 'View My Works', 'hero.scroll': 'Scroll Down',
+            'work.title': 'Selected Works', 'work.subtitle': 'Short videos · Graphics · Dev projects',
+            'work.all': 'All', 'work.video': 'Video', 'work.graphic': 'Graphic', 'work.dev': 'Dev',
+            'work.detail': 'Details', 'work.cloud': 'Cloud',
+            'work.tag_video': 'Video', 'work.tag_graphic': 'Graphic', 'work.tag_dev': 'Dev',
+            'project.info_title': 'Information Flow Videos',
+            'project.info_desc': 'Produced and promoted short videos at an information-flow company; operated the Douyin account "LaoHe BBQ".',
+            'project.anim_title': '3D Animation',
+            'project.anim_desc': 'Studied 3D animation production and can independently complete animated shorts. Won provincial 3rd prize in the Future Designer competition.',
+            'project.amv_title': 'AMV Edit',
+            'project.amv_desc': 'Marvel movie action beat-synced mashup with extensive effects and editing techniques — tight rhythm, highly watchable.',
+            'project.oral_title': 'Broadcast Editing',
+            'project.oral_desc': 'Designed personal intro cards and job-application PPT templates to present strengths and career direction intuitively.',
+            'project.marketing_title': 'Marketing Content',
+            'project.marketing_desc': 'Planned and produced shareable marketing content combining internet trends and hot topics.',
+            'project.resume_title': 'Resume Page',
+            'project.resume_desc': 'A personal resume page covering basic info, education and internship experience, with solid layout and frontend implementation.',
             'project.cat_title': 'Cat Adventure',
-            'project.cat_desc': 'A 2D platformer game built with Godot engine, featuring rich level design and smooth action mechanics.',
+            'project.cat_desc': 'A 2D platformer built with the Godot engine, featuring rich level design and smooth action mechanics.',
             'project.survey_title': 'Survey System',
-            'project.survey_desc': 'A modern full-stack system built with Vue3 + Node.js, supporting multiple question types and data analytics.',
+            'project.survey_desc': 'A modern full-stack system built with Vue3 + Node.js, decoupled front/back end, supporting multiple question types and data analytics.',
             'project.winform_title': 'Winform Video Manager',
             'project.winform_desc': 'A video management system built with Winform, supporting CRUD operations and submission workflow.',
             'project.wpf_title': 'WPF Desktop Widget - Mote',
             'project.wpf_desc': 'A minimal desktop widget built with WPF, integrating weather updates, daily quotes, and holiday countdown.',
             'project.ue4_title': 'UE4 Action Game',
             'project.ue4_desc': "A 2.5D action game combining Unreal Engine's advanced technology with rich gameplay mechanics.",
-            'project.info_title': 'Information Flow Videos',
-            'project.info_desc': 'Internship experience in information flow video production and promotion. Account: DY: LaoHe BBQ',
-            'project.anim_title': '3D Animation',
-            'project.anim_desc': 'Studied 3D animation production. Won provincial 3rd prize in Future Designer competition.',
-            'project.amv_title': 'AMV Edit',
-            'project.amv_desc': 'Marvel movie action-packed beat-synced mashup with extensive effects and editing techniques.',
-            'project.resume_title': 'Resume Page',
-            'project.resume_desc': 'Personal resume showcase including basic info, education background, and internship experience.',
-            'project.oral_title': 'Broadcast Editing',
-            'project.oral_desc': 'Created personal intro cards and recruitment PPT templates for intuitive resume presentation.',
-            'project.marketing_title': 'Marketing Content',
-            'project.marketing_desc': 'Combining internet trends and hot topics to create viral marketing content.',
-            'about.tag1': 'Game Enthusiast', 'about.tag2': 'Developer', 'about.title': 'About Me',
-            'about.text1': "I'm a developer who loves games and programming, passionate about exploring new technologies and creating interesting projects.",
-            'about.text2': 'I find joy in code and experience different worlds through games. My journey bridges the gap between creativity and technology.',
+            'about.tag1': 'Content Creator', 'about.tag2': 'Video Editor', 'about.title': 'About Me',
+            'about.monogram_sub': 'New Media · Content · Tech',
+            'about.text1': "I'm a content creator focused on new media — short-video editing and graphic planning — with frontend and desktop development skills that give my content a technical edge.",
+            'about.text2': 'From topic selection and editing to account operations, I sharpen my craft with every post; coding lets me turn ideas into working tools and pages fast.',
             'about.quote1': '"Life is not just about the daily grind, but also about code and the horizon beyond."',
             'about.quote2': '"Days may repeat, but happiness doesn\'t."',
             'about.quote3': '"Let go of worries, make room for flowers."',
             'about.quote4': '"Everything will be beautiful in the end."',
             'about.skills_title': 'Skills & Abilities',
-            'about.skill_frontend': 'Frontend Development', 'about.skill_backend': 'Backend (C# / .NET)',
-            'about.skill_gamedev': 'Game Development', 'about.skill_editing': 'Video Editing',
+            'about.skill_editing': 'Video Editing', 'about.skill_graphic': 'Graphic Design',
+            'about.skill_operation': 'Account Operations', 'about.skill_frontend': 'Frontend Development',
             'about.cta_title': 'Want to Chat?',
-            'about.cta_text': "Whether it's tech discussion, game dev exploration, or collaboration, I'm always open to interesting ideas!",
+            'about.cta_text': "Whether it's content collaboration, account operations, or a tech-savvy creative partner, I'd love to hear your ideas!",
             'about.cta_btn': 'Get in Touch',
             'about.timeline_title': 'My Journey', 'about.present': 'Present',
-            'about.tl1': 'Development journey, setting sail!',
+            'about.tl1': 'Creating content and coding in parallel, shipping continuously.',
             'about.tl2': 'Focused on C# and .NET backend development, deployed personal homepage to GitHub Pages.',
             'about.tl3': 'Studied front-end/back-end separation architecture, learning extensively on Bilibili.',
             'about.tl4': 'Entered the world of programming and game development, wrote the first "Hello World".',
             'contact.title': 'Contact', 'contact.subtitle': "Feel free to reach out. I'd love to hear from you.",
-            'contact.tagline': 'Ready to create something amazing?',
+            'contact.tagline': 'Creating value with content — open to collaboration.',
             'contact.name_label': 'YOUR NAME', 'contact.name_ph': 'John Doe',
             'contact.email_label': 'EMAIL ADDRESS', 'contact.email_ph': 'john@example.com',
             'contact.subject_label': 'SUBJECT', 'contact.subject_ph': 'Collaboration Request',
@@ -159,6 +173,24 @@ document.addEventListener('DOMContentLoaded', () => {
         applyTranslations(currentLang);
         updateLangButton();
         startTypingCarousel();
+    });
+
+    // ===== Theme Toggle (dark / light) =====
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+
+    function updateThemeButton() {
+        const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+        themeIcon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
+    }
+
+    updateThemeButton();
+
+    themeToggle.addEventListener('click', () => {
+        const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateThemeButton();
     });
 
     // ===== Multi-text Typing Carousel =====
@@ -205,114 +237,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     startTypingCarousel();
-
-    // ===== Hero Image Carousel =====
-    const heroSlides = document.querySelectorAll('.hero-slide');
-    const heroDots = document.querySelectorAll('.dot');
-    let currentSlide = 0;
-    let slideInterval;
-
-    function showSlide(index) {
-        heroSlides.forEach(s => s.classList.remove('active'));
-        heroDots.forEach(d => d.classList.remove('active'));
-        if (heroSlides[index]) heroSlides[index].classList.add('active');
-        if (heroDots[index]) heroDots[index].classList.add('active');
-        currentSlide = index;
-    }
-
-    function nextSlide() {
-        showSlide((currentSlide + 1) % heroSlides.length);
-    }
-
-    function startSlideshow() {
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 5000);
-    }
-
-    heroDots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            clearInterval(slideInterval);
-            showSlide(parseInt(dot.dataset.index));
-            startSlideshow();
-        });
-    });
-
-    if (heroSlides.length > 1) startSlideshow();
-
-    // ===== Sakura Canvas Animation =====
-    const sakuraCanvas = document.getElementById('sakura-canvas');
-    if (sakuraCanvas) {
-        const ctx = sakuraCanvas.getContext('2d');
-        const petals = [];
-        const isMobile = window.innerWidth < 768;
-        const petalCount = isMobile ? 25 : 50;
-
-        function resizeCanvas() {
-            sakuraCanvas.width = window.innerWidth;
-            sakuraCanvas.height = window.innerHeight;
-        }
-
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        class Petal {
-            constructor(spread) {
-                this.reset(spread);
-            }
-
-            reset(spread) {
-                this.x = Math.random() * sakuraCanvas.width;
-                this.y = spread ? Math.random() * sakuraCanvas.height : Math.random() * -sakuraCanvas.height;
-                this.size = Math.random() * 8 + 4;
-                this.speedY = Math.random() * 1 + 0.5;
-                this.speedX = Math.random() * 0.5 - 0.25;
-                this.rotation = Math.random() * Math.PI * 2;
-                this.rotationSpeed = (Math.random() - 0.5) * 0.02;
-                this.opacity = Math.random() * 0.4 + 0.15;
-                this.wobble = Math.random() * Math.PI * 2;
-                this.wobbleSpeed = Math.random() * 0.02 + 0.01;
-            }
-
-            update() {
-                this.y += this.speedY;
-                this.wobble += this.wobbleSpeed;
-                this.x += this.speedX + Math.sin(this.wobble) * 0.3;
-                this.rotation += this.rotationSpeed;
-                if (this.y > sakuraCanvas.height + 20) {
-                    this.reset(false);
-                    this.y = -10;
-                }
-                if (this.x > sakuraCanvas.width + 20) this.x = -20;
-                if (this.x < -20) this.x = sakuraCanvas.width + 20;
-            }
-
-            draw() {
-                ctx.save();
-                ctx.translate(this.x, this.y);
-                ctx.rotate(this.rotation);
-                ctx.globalAlpha = this.opacity;
-                ctx.fillStyle = '#f8b4c8';
-                ctx.beginPath();
-                ctx.moveTo(0, 0);
-                ctx.bezierCurveTo(this.size / 2, -this.size / 2, this.size, 0, 0, this.size);
-                ctx.bezierCurveTo(-this.size, 0, -this.size / 2, -this.size / 2, 0, 0);
-                ctx.fill();
-                ctx.restore();
-            }
-        }
-
-        for (let i = 0; i < petalCount; i++) {
-            petals.push(new Petal(true));
-        }
-
-        function animateSakura() {
-            ctx.clearRect(0, 0, sakuraCanvas.width, sakuraCanvas.height);
-            petals.forEach(p => { p.update(); p.draw(); });
-            requestAnimationFrame(animateSakura);
-        }
-
-        animateSakura();
-    }
 
     // ===== Mobile Menu =====
     const menuToggle = document.getElementById('menu-toggle');
@@ -382,13 +306,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     // ===== Scroll Reveal with Stagger =====
+    const noReveal = new URLSearchParams(location.search).has('noreveal');
+    if (new URLSearchParams(location.search).has('flat')) document.body.classList.add('flat');
     const revealGroups = [
         { selector: '.project-card', stagger: true },
         { selector: '.skills-card, .cta-card', stagger: false },
         { selector: '.contact-info-card, .contact-form-card', stagger: false },
         { selector: '.timeline-item', stagger: true },
         { selector: '.section-header', stagger: false },
-        { selector: '.hero-text, .hero-image-wrapper', stagger: false },
+        { selector: '.hero-text, .hero-visual', stagger: false },
         { selector: '.about-grid, .about-bottom', stagger: false },
     ];
 
@@ -397,6 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
     revealGroups.forEach(group => {
         const els = document.querySelectorAll(group.selector);
         els.forEach((el, index) => {
+            if (noReveal) return;
             el.classList.add('reveal');
             if (group.stagger) {
                 el.classList.add(`stagger-${Math.min(index % 8 + 1, 8)}`);
@@ -645,7 +572,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!ticking) {
             requestAnimationFrame(() => {
                 const scrollY = window.scrollY;
-                const heroImg = document.querySelector('.hero-image-wrapper');
+                const heroImg = document.querySelector('.hero-visual');
                 if (heroImg && scrollY < window.innerHeight) {
                     heroImg.style.transform = `translateY(${scrollY * 0.03}px)`;
                 }
