@@ -15,5 +15,107 @@
   </head>
   <body>
     <div id="root"></div>
+    <style>
+      /* 点击作品名称在线播放 */
+      .pcell h3.lead.playable { cursor: pointer; }
+      .pcell h3.lead.playable::after {
+        content: " ▶";
+        font-size: 0.55em;
+        opacity: 0.55;
+        vertical-align: 0.4em;
+        margin-left: 0.3em;
+      }
+      .pcell h3.lead.playable:hover { text-decoration: underline; text-underline-offset: 5px; }
+      .vp-overlay {
+        position: fixed; inset: 0; z-index: 9999;
+        background: rgba(8, 8, 10, 0.88);
+        -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+        display: flex; align-items: center; justify-content: center;
+        padding: 24px; animation: vp-fade 0.18s ease;
+      }
+      .vp-box { position: relative; max-width: min(94vw, 980px); }
+      .vp-video {
+        display: block; max-width: 100%; max-height: 82vh; width: auto; margin: 0 auto;
+        background: #000; border-radius: 10px;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+      }
+      .vp-caption {
+        margin-top: 12px; text-align: center;
+        color: #e8e8e4; font-size: 14px; letter-spacing: 0.04em;
+      }
+      .vp-close {
+        position: absolute; top: -14px; right: -14px;
+        width: 36px; height: 36px; border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: rgba(20, 20, 22, 0.92); color: #eee;
+        font-size: 15px; line-height: 1; cursor: pointer;
+      }
+      .vp-close:hover { background: #2a2a2e; }
+      @keyframes vp-fade { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+    <script>
+      /* 点击作品名称 → 浏览器内弹出视频播放器（Edge / Chrome 原生 H.264 播放） */
+      (function () {
+        var MAP = {
+          "解说视频": "/assets/videos/jieshuo.mp4",
+          "Narration Videos": "/assets/videos/jieshuo.mp4",
+          "种草视频": "/assets/videos/zhongcao.mp4",
+          "Recommendation Videos": "/assets/videos/zhongcao.mp4",
+          "知识科普视频": "/assets/videos/zhishi.mp4",
+          "Educational Videos": "/assets/videos/zhishi.mp4",
+          "漫剪视频": "/assets/videos/manjian.mp4",
+          "Marvel Mashup Edit": "/assets/videos/manjian.mp4",
+          "营销号制作": "/assets/videos/yingxiaohao.mp4",
+          "Viral Content Production": "/assets/videos/yingxiaohao.mp4",
+          "口播剪辑": "/assets/videos/koubo.mp4",
+          "Talking-head Edits": "/assets/videos/koubo.mp4",
+          "3D 动画视频": "/assets/videos/render.mp4",
+          "3D Animation": "/assets/videos/render.mp4"
+        };
+        function mark() {
+          document.querySelectorAll(".pcell h3.lead").forEach(function (h) {
+            var t = (h.textContent || "").trim();
+            if (MAP[t] && !h.classList.contains("playable")) {
+              h.classList.add("playable");
+              h.dataset.video = MAP[t];
+              h.dataset.vtitle = t;
+              h.title = "点击播放 / Click to play";
+            }
+          });
+        }
+        document.addEventListener("click", function (e) {
+          var el = e.target && e.target.closest ? e.target.closest(".playable[data-video]") : null;
+          if (!el) return;
+          e.preventDefault();
+          openPlayer(el.dataset.vtitle || el.textContent.trim(), el.dataset.video);
+        }, true);
+        var ov = null, vid = null;
+        function openPlayer(title, src) {
+          closePlayer();
+          ov = document.createElement("div");
+          ov.className = "vp-overlay";
+          ov.innerHTML =
+            '<div class="vp-box"><button class="vp-close" aria-label="关闭 Close">\u2715</button>' +
+            '<video class="vp-video" controls playsinline preload="metadata" src="' + src + '"></video>' +
+            '<div class="vp-caption"></div></div>';
+          ov.querySelector(".vp-caption").textContent = title;
+          vid = ov.querySelector("video");
+          document.body.appendChild(ov);
+          document.body.style.overflow = "hidden";
+          ov.addEventListener("click", function (e) { if (e.target === ov) closePlayer(); });
+          ov.querySelector(".vp-close").addEventListener("click", closePlayer);
+          if (vid.play) vid.play().catch(function () {});
+        }
+        function closePlayer() {
+          if (!ov) return;
+          if (vid) { try { vid.pause(); } catch (err) {} vid.removeAttribute("src"); vid.load(); }
+          ov.remove(); ov = null; vid = null;
+          document.body.style.overflow = "";
+        }
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape") closePlayer(); });
+        mark();
+        new MutationObserver(mark).observe(document.documentElement, { childList: true, subtree: true });
+      })();
+    </script>
   </body>
 </html>
