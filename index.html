@@ -38,20 +38,6 @@
         background: #000; border-radius: 10px;
         box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
       }
-      .vp-media { position: relative; }
-      .vp-loading {
-        position: absolute; inset: 0;
-        display: flex; align-items: center; justify-content: center; gap: 10px;
-        background: rgba(8, 8, 10, 0.55);
-        color: #ddd; font-size: 13px; letter-spacing: 0.12em;
-      }
-      .vp-spin {
-        width: 18px; height: 18px; border-radius: 50%;
-        border: 2px solid rgba(255, 255, 255, 0.25);
-        border-top-color: #fff;
-        animation: vp-rot 0.8s linear infinite;
-      }
-      @keyframes vp-rot { to { transform: rotate(360deg); } }
       .vp-caption {
         margin-top: 12px; text-align: center;
         color: #e8e8e4; font-size: 14px; letter-spacing: 0.04em;
@@ -129,10 +115,7 @@
           ov.className = "vp-overlay";
           ov.innerHTML =
             '<div class="vp-box"><button class="vp-close" aria-label="关闭 Close">\u2715</button>' +
-            '<div class="vp-media">' +
             '<video class="vp-video" controls playsinline preload="auto" src="' + src + '"></video>' +
-            '<div class="vp-loading"><span class="vp-spin"></span>正在缓冲…</div>' +
-            '</div>' +
             '<div class="vp-caption"></div></div>';
           ov.querySelector(".vp-caption").textContent = title;
           vid = ov.querySelector("video");
@@ -140,18 +123,7 @@
           document.body.style.overflow = "hidden";
           ov.addEventListener("click", function (e) { if (e.target === ov) closePlayer(); });
           ov.querySelector(".vp-close").addEventListener("click", closePlayer);
-          var loading = ov.querySelector(".vp-loading");
-          function hideLoading() { if (loading && loading.parentNode) { loading.remove(); loading = null; } }
-          function bufferedAhead() {
-            try { return vid.buffered.length ? vid.buffered.end(vid.buffered.length - 1) - vid.currentTime : 0; } catch (err) { return 0; }
-          }
-          function tryStart() {
-            if (bufferedAhead() >= 5 || vid.readyState >= 4) { hideLoading(); if (vid.paused) vid.play().catch(function () {}); }
-          }
-          vid.addEventListener("progress", tryStart);
-          vid.addEventListener("canplaythrough", tryStart);
-          vid.addEventListener("play", hideLoading);
-          vid.addEventListener("error", function () { if (loading) loading.textContent = "加载失败，请稍后重试"; });
+          if (vid.play) vid.play().catch(function () {});
         }
         function closePlayer() {
           if (!ov) return;
